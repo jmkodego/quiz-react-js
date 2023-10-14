@@ -4,11 +4,16 @@ import { Box, Button, CircularProgress, Typography } from '@mui/material'
 import TextFieldComponent from '../components/TextFieldComponent'
 import useAxios from '../hooks/useAxios'
 import { difficultyOptions, typeOptions } from '../constants'
+import { useNavigate } from 'react-router-dom'
 
 function Settings() {
     const { response, error, loading } = useAxios({ url: "/api_category.php" })
+
+
+    const navigate = useNavigate()
     function handleSubmit(e) {
         e.preventDefault()
+        navigate('/questions')
     }
     if (loading) {
         return (
